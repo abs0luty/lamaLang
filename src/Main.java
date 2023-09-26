@@ -1,6 +1,6 @@
 import parser.Lexer;
 import parser.Parser;
-import parser.Token;
+import ast.Token;
 import parser.ast.Statement;
 import parser.visitors.AssignValidator;
 import parser.visitors.FunctionAdder;

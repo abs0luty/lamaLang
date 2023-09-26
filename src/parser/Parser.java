@@ -1,5 +1,7 @@
 package parser;
 
+import ast.SegmentLocation;
+import ast.Token;
 import parser.ast.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +9,6 @@ import java.util.List;
 
 public final class Parser {
     
-    private static final Token EOF = new Token(TokenType.EOF, "", -1, -1);
-
     private final List<Token> tokens;
     private final int size;
     
@@ -428,7 +428,7 @@ public final class Parser {
     
     private Token get(int relativePosition) {
         final int position = pos + relativePosition;
-        if (position >= size) return EOF;
+        if (position >= size) return new Token(TokenType.EOF, new SegmentLocation(position));
         return tokens.get(position);
     }
 }
